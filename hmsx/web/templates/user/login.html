@@ -1,0 +1,42 @@
+{% extends 'common/layout_user.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>登录图片</h2>
+            <img style="width: 500px;" src="{{ url_for('static',filename='img/20180816162523.jpg') }}" alt="">
+        </div>
+        <div class="col-md-6">
+            <div class="ibox-content">
+                <div class="m-t login_wrap">
+                    <div class="form-group text-center">
+                        <h2 class="font-bold">登录</h2>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername">用户名</label>
+                        <input type="text" class="form-control" name="login_name" id="exampleInputUsername" placeholder="username">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">密码</label>
+                        <input type="password" class="form-control" name="login_pwd" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                    <button type="button" class="btn btn-primary block full-width m-b do-login">登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <a href="">Powered by 1903C</a>
+        </div>
+        <div class="col-md-6 text-right">
+            <small>&copy;1903C - 2020</small>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script src="{{ url_for('static',filename='js/user/login.js') }}"></script>
+{% endblock %}
