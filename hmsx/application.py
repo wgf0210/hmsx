@@ -10,6 +10,12 @@ class Application(Flask):
 app = Application(__name__,template_folder=os.getcwd()+'/web/templates',root_path=os.getcwd(),static_folder=os.getcwd()+'/web/static')
 manager = Manager(app)
 
+# 函数模板
+from common.libs.UrlManager import UrlManager
+app.add_template_global(UrlManager.buildUrl,'buildUrl')
+app.add_template_global(UrlManager.buildStaticUrl,'buildStaticUrl')
+app.add_template_global(UrlManager.buildImageUrl,'buildImageUrl')
+
 # app = Flask(__name__)
 
 # @app.route('/')
