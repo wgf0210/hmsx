@@ -28,12 +28,13 @@ var user_login_ops = {
             // Ajax 用来做前后端分离，数据格式是json{key:value}
             // 前端发送的数据是json格式，要求后端范蝴蝶数据也是json格式
             $.ajax({
-                url:'/user/login',
+                url:'/user/login/',
                 type:'POST',
                 data:{'login_name':login_name,'login_pwd':login_pwd},
                 dataType:'json',
                 success:function(response){
                     btn_target.removeClass('disabled')
+                    alert(response.msg)
                     console.log(response)
                 }
             })
