@@ -20,7 +20,7 @@
                         <div class="profile-element text-center">
                             <img alt="image" width="80px" height="60px" class="img-circle"
                                 src="{{ buildStaticUrl('/img/common/20180816162523.jpg') }}" />
-                            <p class="text-muted">Bruce</p>
+                            <p class="text-muted">{{ current_user.nickname }}</p>
                         </div>
                         <div class="logo-element">
                             <img alt="image" width="30px" class="img-circle"
@@ -77,22 +77,22 @@
                             <ul class="dropdown-menu dropdown-messages">
                                 <li>
                                     <div class="dropdown-messages-box">
-                                        姓名：张三<a href="{{ buildUrl('/user/edit') }}" class="pull-right">编辑</a>
+                                        姓名：{{ current_user.nickname }}<a href="{{ buildUrl('/user/edit') }}" class="pull-right">编辑</a>
                                     </div>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
                                     <div class="dropdown-messages-box">
-                                        手机号码：13933746521
+                                        手机号码：{{ current_user.mobile }}
                                     </div>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
                                     <div class="link-block text-center">
-                                        <a class="pull-left" href="{{ buildUrl('/user/reset-pwd') }}">
+                                        <a class="pull-left" href="{{ buildUrl('/user/resetpwd') }}">
                                             <i class="fa fa-lock"></i> 修改密码
                                         </a>
-                                        <a class="pull-right" href="{{ buildUrl('/user/logout') }}">
+                                        <a class="pull-right" href="{{ buildUrl('/user/loginout') }}">
                                             <i class="fa fa-sign-out"></i> 退出
                                         </a>
                                     </div>

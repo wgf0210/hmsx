@@ -1,7 +1,9 @@
-from flask import Blueprint,render_template,request,jsonify,make_response
+from flask import Blueprint,render_template,request,jsonify,make_response,redirect,g
 
 from common.models.User import User
 from common.libs.user.UserService import Userservice
+from common.libs.Helper import ops_render
+from common.libs.UrlManager import UrlManager
 from application import app
 
 import json
@@ -12,7 +14,9 @@ router_user = Blueprint('user_page',__name__)
 def login():
     print('123')
     if request.method == 'GET':
-        return render_template('user/login.html')
+        if g.current_user:
+            return redirect(UrlManager.buildUrl('/'))
+        return ops_render('user/login.html')
     resp = {
         'code':200,
         'msg':'登陆成功！',
@@ -52,21 +56,20 @@ def login():
     # name，value，过期时间
     # value包括login_name，login_pwd，login_salt，uid
     response.set_cookie(app.config['AUTH_COOKIE_NAME'],'%s@%s'%(Userservice.generateAuthCode(user_info),user_info.uid),60*60*24*5)
-
-    return jsonify(resp)
     
+    return response
+    # return jsonify(resp)
 
 @router_user.route('/loginout/')
 def loginout():
-    print('123')
-    return 'loginout页面'
+    response = make_response(redirect(UrlManager.buildUrl('/user/login')))
+    response.delete_cookie(app.config['AUTH_COOKIE_NAME'])
+    return response
 
-@router_user.route('/edit/')
+@router_user.route('/edit/',methods=['POST','GET'])
 def edit():
-    print('123')
-    return 'edit页面'
+    return ops_render('/user/edit.html')
 
 @router_user.route('/resetpwd/')
 def resetpwd():
-    print('123')
-    return '重置密码页面'
+    return ops_render('/user/reset.html')
