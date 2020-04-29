@@ -21,7 +21,7 @@ var account_index_ops = {
             //     dataType:'json',
             //     success:function(resp){
             //         if (resp.code==200){
-            //             window.location.gref = common_ops.buildUrl('/account/index/')
+            //             window.location.href = common_ops.buildUrl('/account/index/')
             //         }
             //         alert(resp.msg)
             //         console.log(resp.msg)
@@ -44,7 +44,7 @@ var account_index_ops = {
             //     dataType:'json',
             //     success:function(resp){
             //         if (resp.code==200){
-            //             window.location.gref = common_ops.buildUrl('/account/index/')
+            //             window.location.href = common_ops.buildUrl('/account/index/')
             //         }
             //         alert(resp.msg)
             //         console.log(resp.msg)
@@ -67,7 +67,7 @@ var account_index_ops = {
             dataType:'json',
             success:function(resp){
                 if (resp.code==200){
-                    window.location.gref = common_ops.buildUrl('/account/index/')
+                    window.location.href = common_ops.buildUrl('/account/index/')
                 }
                 alert(resp.msg)
                 console.log(resp.msg)
