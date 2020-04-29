@@ -46,6 +46,10 @@ var account_set_ops = {
                 data:data,
                 dataType:'json',
                 success:function(resp){
+                    if (resp.code==200){
+                        window.location.gref = common_ops.buildUrl('/account/index/')
+                    }
+                    alert(resp.msg)
                     console.log(resp.msg)
                 },
                 error:function(error){
