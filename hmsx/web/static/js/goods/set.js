@@ -29,7 +29,7 @@ var goods_set_ops = {
                 alert('请输入售价')
                 return
             }
-            if ($('.wrap_goods_set .pri-each').size()<1){
+            if ($('.wrap_goods_set .pri-each').length<1){
                 alert('请上传封面')
                 return
             }
