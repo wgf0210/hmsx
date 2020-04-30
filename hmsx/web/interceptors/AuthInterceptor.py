@@ -11,7 +11,7 @@ import re
 @app.before_request
 def before_request():
     path = request.path
-    print(path)
+    # print(path)
 
     # 读取匹配规则
     ignore_urls = app.config['IGNORE_URLS']
